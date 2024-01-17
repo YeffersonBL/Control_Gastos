@@ -1,6 +1,6 @@
 import React from 'react'
-import NuevoPresupuesto from './NuevoPresupuesto'
-import ControlPresupuesto from './ControlPresupuesto'
+import NuevoPresupuesto from '../NuevoPresupuesto/NuevoPresupuesto'
+import ControlPresupuesto from '../../pages/Presupuesto/ControlPresupuesto' 
 
 const Header = ({
      gastos,
@@ -12,7 +12,7 @@ const Header = ({
     }) => {
   return (
     <header>
-        <h1>Planificador de Gastos</h1>
+        <h1>¡Bienvenido a Money Minder Management!</h1>
         
         {isValidPresupuesto ? (
             <ControlPresupuesto

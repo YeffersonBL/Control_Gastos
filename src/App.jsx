@@ -1,16 +1,20 @@
 import { useState, useEffect } from 'react'
-import Header from './components/Header'
-import ListadoGastos from './components/ListadoGastos'
-import Modal from './components/Modal'
-import Filtros from './components/Filtros'
+import Header from './components/Header/Header'
+import ListadoGastos from './components/ListadoGastos/ListadoGastos'
+import Modal from './components/Modal/Modal'
+import Filtros from './components/Filtros/Filtros'
 import { generarId } from './helpers'
-import IconoNuevoGasto from './img/nuevo-gasto.svg'
-
+import IconoNuevoGasto from './assets/icon/nuevo-gasto.svg'  
+import Login from './components/Login/Login';
 
 function App() {
+  const [user, setUser] = useState(null);
+  const handleLogin = (userData) => {
+    setUser(userData);
+  };
   
   const [gastos, setGastos] = useState(
-    localStorage.getItem('gastos') ? JSON.parse(localStorage.getItem('gastos')) : []
+    localStorage.getItem('gastos') ? JSON.parse(localStorage.getItem('gastos')) : [] //Almacena los datos del usuario en el navegador.
   );
 
   const [presupuesto, setPresupuesto] = useState(
@@ -61,9 +65,7 @@ function App() {
     if(presupuestoLS > 0 ){
         setIsValidPresupuesto(true);
     }
-  }, [])
-  
-  
+  }, [])  
 
   const handleNuevoGasto = () => {
       setModal(true);
@@ -101,17 +103,21 @@ function App() {
 
   return (
     <div className={modal ? 'fijar' : ''}>
-      <Header 
-          gastos={gastos}
-          setGastos={setGastos}
-          presupuesto={presupuesto}
-          setPresupuesto={setPresupuesto}
-          isValidPresupuesto={isValidPresupuesto}
-          setIsValidPresupuesto={setIsValidPresupuesto}
-      />
+      {!user ?(
+        <Login onLogin={handleLogin} />
+        ) : (
+          <>
+            <Header 
+            gastos={gastos}
+            setGastos={setGastos}
+            presupuesto={presupuesto}
+            setPresupuesto={setPresupuesto}
+            isValidPresupuesto={isValidPresupuesto}
+            setIsValidPresupuesto={setIsValidPresupuesto}
+          />
 
-      {isValidPresupuesto && (
-        <>
+          {isValidPresupuesto && (
+         <>
             <main>
               <Filtros
                   filtro={filtro}
@@ -132,10 +138,8 @@ function App() {
                     onClick={handleNuevoGasto}
                 />
             </div>
-        </>
-
-
-      )}
+          </>
+        )}
 
       {modal && <Modal 
                   setModal={setModal}
@@ -145,6 +149,8 @@ function App() {
                   gastoEditar={gastoEditar}
                   setGastoEditar={setGastoEditar}
                 />}
+          </>
+        )}
 
 
     </div>

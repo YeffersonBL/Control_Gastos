@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import Mensaje from './Mensaje';
-import CerrarBtn from '../img/cerrar.svg'
+import Mensaje from '../Mensaje/Mensaje';
+import CerrarBtn from '../../assets/icon/cerrar.svg' 
 
 const Modal = ({
     setModal,
@@ -114,13 +114,18 @@ const Modal = ({
                             onChange={ e => setCategoria(e.target.value)}
                         >
                             <option value='' disabled selected>-- Seleccione --</option>
-                            <option value='ahorro'>Ahorro</option>
-                            <option value='comida'>Comida</option>
-                            <option value='casa'>Casa</option>
-                            <option value='gastos'>Gastos Varios</option>
-                            <option value='ocio'>Ocio</option>
+                            <option value='educacion'>Educacion</option>
+                            <option value='electronicos'>Electrónicos</option>
+                            <option value='otros'>Otros</option>
+                            <option value='recreacion'>Recreación</option>
+                            <option value='restaurante'>Restaurante</option>
+                            <option value='ropa'>Ropa</option>
                             <option value='salud'>Salud</option>
-                            <option value='suscripciones'>Suscripciones</option>
+                            <option value='servicios'>Servicios</option>
+                            <option value='supermercado'>Suermercado</option>
+                            <option value='transporte'>Transporte</option>
+                            <option value='viaje'>Viaje</option>
+                            <option value='vivienda'>Vivienda</option>
 
                         </select>
 

@@ -26,4 +26,4 @@ Una aplicación web para planificar y llevar un registro de tus gastos personale
 
 ## Autor
 
-- Este proyecto fue desarrollado por yulyus-qaysar (github.com/yulyus-qaysar).
+- Este proyecto fue desarrollado por Yefferson Bocanegra 

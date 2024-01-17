@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Mensaje from './Mensaje';
+import Mensaje from '../Mensaje/Mensaje';
 
 const NuevoPresupuesto = ({presupuesto, setPresupuesto, setIsValidPresupuesto}) => {
 

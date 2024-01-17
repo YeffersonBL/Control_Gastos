@@ -8,25 +8,33 @@ import {
 } from 'react-swipeable-list'
 import 'react-swipeable-list/dist/styles.css'
 
-import {formatearFecha} from '../helpers'
-
-import IconoAhorro from '../img/icono_ahorro.svg'
-import IconoCasa from '../img/icono_casa.svg'
-import IconoComida from '../img/icono_comida.svg'
-import IconoGastos from '../img/icono_gastos.svg'
-import IconoOcio from '../img/icono_ocio.svg'
-import IconoSalud from '../img/icono_salud.svg'
-import IconoSuscripciones from '../img/icono_suscripciones.svg'
-
+import {formatearFecha} from '../../helpers'
+import IconoEducacion from '../../assets/icon/Estudio.svg' 
+import IconoElectronicos from '../../assets/icon/Electronico.svg'
+import IconoOtros from '../../assets/icon/Otros.svg'
+import IconoRecreacion from '../../assets/icon/Recreacion.svg'
+import IconoRestaurante from '../../assets/icon/Restaurante.svg'
+import IconoRopa from '../../assets/icon/Ropa.svg'
+import IconoSalud from '../../assets/icon/Salud.svg'
+import IconoServicios from '../../assets/icon/Servicios.svg'
+import IconoSupermercado from '../../assets/icon/Supermercado.svg'
+import IconoTransporte from '../../assets/icon/Transporte.svg'
+import IconoViaje from '../../assets/icon/Viaje.svg'
+import IconoVivienda from '../../assets/icon/Vivienda.svg'
 
 const diccionarioIconos = {
-    ahorro: IconoAhorro,
-    comida: IconoComida,
-    casa: IconoCasa,
-    gastos: IconoGastos,
-    ocio: IconoOcio,
-    salud: IconoSalud,
-    suscripciones: IconoSuscripciones
+  educacion : IconoEducacion,
+  electronicos : IconoElectronicos,
+  otros : IconoOtros,
+  recreacion : IconoRecreacion, 
+  restaurante : IconoRestaurante, 
+  ropa : IconoRopa,
+  salud : IconoSalud, 
+  servicios : IconoServicios,
+  supermercado : IconoSupermercado,
+  transporte : IconoTransporte,
+  viaje : IconoViaje, 
+  vivienda : IconoVivienda
 
 }
 
@@ -76,7 +84,7 @@ const Gasto = ({gasto, setGastoEditar, eliminarGasto}) => {
                   </div>
               </div>
 
-                  <p className='cantidad-gasto'>L{cantidad}</p>
+                  <p className='cantidad-gasto'>${cantidad}</p>
 
           </div>
         </SwipeableListItem>
