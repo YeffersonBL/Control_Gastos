@@ -1,33 +1,51 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './Login.css';
 import Logo from "../../assets/img/Logo.png"
 import Finanzas from "../../assets/img/LoginFinanzas.jpg" 
 
-const Login = ({ onLogin }) => {
+  const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [apellido, setApellido] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
 
-  const handleLogin = () => {
-    // Aquí deberías implementar la lógica de autenticación
-    // Puedes hacer una solicitud a un servidor para verificar las credenciales
-    // y obtener un token de autenticación si es exitoso.
-    // Por ahora, simplemente imprimiremos los datos en la consola.
-    console.log('Iniciar sesión con:', email, password);
-    // Luego, puedes llamar a la función onLogin con el usuario autenticado.
-    onLogin({ name, email });
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:3200/api/login', {
+        correo: email,
+        contrasenia: password,
+      });
+  
+      // Aquí puedes manejar la respuesta del servidor
+      console.log('Login exitoso:', response.data);
+      // Luego, puedes llamar a la función onLogin con el usuario autenticado.
+      onLogin({ name, email });
+    } catch (error) {
+      // Manejo de errores
+      console.error('Error al iniciar sesión:', error.response ? error.response.data : error.message);
+    }
   };
 
-  const handleRegister = () => {
-    // Aquí deberías implementar la lógica de registro
-    // Puedes hacer una solicitud a un servidor para crear una nueva cuenta.
-    // Por ahora, simplemente imprimiremos los datos en la consola.
-    console.log('Registrarse con:', name, apellido, email, password);
-    // Luego, puedes llamar a la función onLogin con el nuevo usuario registrado.
-    onLogin({ name, apellido, email });
-  };
+  const handleRegister = async () => {
+    try {
+      const response = await axios.post('http://localhost:3200/api/usuarios/crear', {
+        nombres: name,
+        apellidos: apellido,
+        correo: email,
+        contrasenia: password,
+      });
+  
+      // Aquí puedes manejar la respuesta del servidor
+      console.log('Registro exitoso:', response.data);
+      // Luego, puedes llamar a la función onLogin con el nuevo usuario registrado.
+      onLogin({ name, apellido, email });
+    } catch (error) {
+      // Manejo de errores
+      console.error('Error al registrarse:', error.response ? error.response.data : error.message);
+    }
+  };  
 
   return (
     <div className="login-container">
