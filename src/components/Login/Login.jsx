@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css';
 import Logo from "../../assets/img/Logo.png"
-import Finanzas from "../../assets/img/LoginFinanzas.jpg" 
+import Finanzas from "../../assets/img/Finanzas.jpg" 
 
   const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
@@ -50,8 +50,7 @@ import Finanzas from "../../assets/img/LoginFinanzas.jpg"
   return (
     <div className="login-container">
     <div className="TituloLogin">
-      <img src={Logo} alt="Logo" />
-      <h1>ThreeM</h1>
+      <img src={Logo} alt="Logo" />      
     </div>
     <div className="panels-container">
       <div className="left-panel">
@@ -61,7 +60,7 @@ import Finanzas from "../../assets/img/LoginFinanzas.jpg"
       </div>
     <div className="right-panel">
       <div className="form-container">
-        <h3>{isRegistering ? 'Registro' : 'Inicia Sesión en Money Minder Management'}</h3>
+        <h3 className='subTitulo2'>{isRegistering ? 'Registro' : 'Inicia Sesión en Money Minder Management'}</h3>
         {isRegistering && (
           <div>
             <label>Nombre:</label>
